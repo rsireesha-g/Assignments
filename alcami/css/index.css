@@ -140,3 +140,28 @@ body{
     }
 }
 /* seen in end */
+
+/* certificates start */
+#certificates-flex{
+    width: 100%;
+    display: flex;
+  gap:0.5rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.certificates-flex-box{
+  display: flex;
+  gap:0.5rem;
+  align-items: center;
+}
+.certificate-img{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+.certificate-text{
+  font-size: var(--m);
+  line-height: 120%;
+  color:var(--text-header-color);
+}
