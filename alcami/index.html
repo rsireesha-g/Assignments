@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alcami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./fonts/NewRailAlphabet-Light (1).otf" />
 </head>
@@ -20,7 +23,24 @@
     <!-- home banner end -->
 
     <!-- elements start -->
-    elements
+    <div class="container">
+        <div id="elements-container">
+            <div id="elements-img-box">
+                <img src="./assets/banners/elements-banner.jpg" alt="powerful element">
+            </div>
+            <div id="elements-content-container">
+                <p id="element-header">9 POWERFUL ELEMENTS</p>
+                <p id="element-text-header">All of the Best Ingredients, None of the Compromise</p>
+                <p id="element-text-description">Alcami uses <span class="text-bold">x10 potency</span> in every
+                    serving, formulated for maximum
+                    absorption to ensure your body gets the most out of every scoop.</p>
+                <button class="primary-button">
+                    <p class="button-text">View full ingredients</p>
+                    <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
+                </button>
+            </div>
+        </div>
+    </div>
     <!-- elements end -->
 
     <!-- guarantee start -->
@@ -64,7 +84,7 @@
     <!-- seen in start -->
     <div class="container">
         <div id="seen-in-container">
-            <h2>AS SEEN IN</h2>
+            <p>AS SEEN IN</p>
             <div id="seen-in-flex-box">
                 <img src="./assets/svg/fast-company.svg" alt="fast-company" class="seen-in-images">
                 <img src="./assets/svg/forbes.svg" alt="forbes" class="seen-in-images">
@@ -113,7 +133,7 @@
 
     <!-- himalayan product start -->
     <div class="container">
-        <h2 id="himalayan-header">Himalayan Shilajit</h2>
+        <p id="himalayan-header">Himalayan Shilajit</p>
         <p id="himalayan-sub-header">NATURE’S ULTIMATE ADAPTOGEN </p>
         <div id="himalayan-flex">
             <div id="himalayan-prod-img">
@@ -158,7 +178,6 @@
             </div>
         </div>
     </div>
-    himalayan
     <!-- himalayan product end -->
 
     <!-- subscribe and save banner start-->
@@ -194,7 +213,51 @@
     <!-- signup banner end -->
 
     <!-- footer start -->
-    <div class="footer">Footer</div>
+    <div id="footer">
+        <img src="./assets/svg/logo.svg" alt="logo" id="footer-logo">
+        <div id="footer-flex-container">
+            <div class="footer-links-container">
+                <a class="footer-link" href="#">Home</a>
+                <a class="footer-link" href="#">About Us</a>
+                <div class="footer-social-link">
+                    <img src="./assets/svg/facebook.svg" alt="facebook" class="footer-social-icon">
+                    <a class="footer-so-link" href="#">
+                        Facebook
+                    </a>
+                </div>
+                <a class="footer-link" href="#">Shop</a>
+                <a class="footer-link" href="#">Blog</a>
+                <div class="footer-social-link">
+                    <img src="./assets/svg/instagram.svg" alt="facebook" class="footer-social-icon">
+                    <a class="footer-so-link" href="#">
+                        Instagram
+                    </a>
+                </div>
+                <a class="footer-link" href="#">Elements</a>
+                <a class="footer-link" href="#">Contact</a>
+                <div class="footer-social-link">
+                    <img src="./assets/svg/x.svg" alt="facebook" class="footer-social-icon">
+                    <a class="footer-so-link" href="#">
+                        X
+                    </a>
+                </div>
+            </div>
+            <div id="footer-subscribe-container">
+                <p id="footer-subscribe-header">Join our newsletter to stay up to date on features and releases.</p>
+                <div id="footer-subscribe-email-btn">
+                    <input type="text" placeholder="Enter your email">
+                    <button id="footer-subscribe-btn">Subscribe</button>
+                </div>
+                <p id="footer-subscribe-desc">By subscribing you agree to with our
+                    <a href="#">Privacy Policy</a> and provide consent to
+                    receive updates from our company.
+                </p>
+
+            </div>
+        </div>
+        <p id="copy-right">© 2024 Alcami Elements. All rights reserved.
+        </p>
+    </div>
     <!-- footer end -->
 </body>
 
