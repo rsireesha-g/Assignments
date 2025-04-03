@@ -18,7 +18,7 @@ body{
 
 :root{
     --xl:32px;
-    --l:30px;
+    --l:24px;
     --m:20px;
     --sm:18px;
     --xs:16px;
@@ -95,3 +95,48 @@ body{
 }
 
 /* guarantee end */
+
+/* seen in start */
+#seen-in-container{
+    display: flex;
+    gap:6rem;
+    justify-content:space-evenly;
+    align-items: center;
+}
+#seen-in-container>h2{
+    font-size: var(--l);
+    line-height: 140%;
+    color:var(--text-header-color);
+    font-weight: 700;
+}
+#seen-in-flex-box{
+  display: flex;
+  gap:1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-grow: 1;
+}
+.seen-in-images{
+    width:fit-content;
+    height: 24px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 480px) {
+    #seen-in-container{
+        gap:1rem;
+        flex-wrap: wrap;
+        justify-content:center;
+    }
+    #seen-in-container{
+        font-size: var(--m);
+    }
+    #seen-in-flex-box{
+        justify-content: space-evenly;
+    }
+    .seen-in-images{
+        height: 20px;
+    }
+}
+/* seen in end */
