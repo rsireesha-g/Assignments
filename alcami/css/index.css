@@ -864,11 +864,26 @@ input[type="radio"]{
  
 @media screen and (max-width:900px){
     .mini-pdp-container{
-        display:grid;
-        grid-template-columns: repeat(1,1fr);
+        display:flex;
+        flex-direction: column;
+        grid-template-columns:unset;
         gap:1rem;
         padding: 1rem 0rem;
-    }  
+    } 
+    .mini-pdp-left,
+    .mini-pdp-right{
+        width: 100%;
+        padding: 1rem;
+    } 
+    .mini-img-grid,
+    .categories-grid
+    {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .mini-img{
+        width: 120px;
+    }
 }
 /* pdp end */
 
@@ -1285,6 +1300,89 @@ input[type="radio"]{
 }
 
 /* percentage end */
+
+/* why alcami start */
+  .why-alcami-container{
+    width:100%;
+    max-width:1000px;
+    margin:2rem auto 1rem;
+  }
+  #why-header{
+    color:var(--text-header-color);
+    font-size:40px;
+    text-align: center;
+  }
+  .why-alcami-container>.primary-button{
+    margin:1rem auto 0rem
+  }
+  /* .table{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+  } */
+   table{
+    width:100%;
+    border-collapse:collapse
+   }
+   .table{
+    overflow-x: auto;
+   }
+   th{
+    width: fit-content;
+    /* display:flex; */
+    gap:0.2rem;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+   }
+   td,th{
+    padding: 16px;
+    border-bottom:1px solid #666;
+    text-align:center;
+    color:var(--text-color);
+    font-size:12px;
+    line-height: 120%;
+
+   }
+   th{
+    padding-bottom: 2rem;
+   }
+   .title{
+    font-weight:700;
+    text-transform: uppercase;
+   }
+   .sub-title{
+    font-weight: 700;
+   }
+  .table-img{
+    width: 100px;
+    height: 100px;
+    color:var(--text-color);
+    font-size:12px;
+    min-width: fit-content;
+    line-height: 120%;
+
+  }
+  .table-img>img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .check-icon{
+   width: 20px;
+   height: 20px;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width:768px){
+    .table-img{
+        width: 80px;
+        height: 80px;
+    }
+    table{
+        overflow-x:scroll;
+    }
+}
+/* why alcami end */
 
 /* customers reviews start */
 .reviews-bg-wrapper{
