@@ -247,6 +247,49 @@
     <!-- subscribe and save banner end-->
 
     <!-- tutorial start -->
+    <div class="container tutorial-container">
+        <div class="tutorial-steps">
+            <p id="tutorial-steps-heading">Your morning ritual, made to awaken your mind.</p>
+            <p id="tutorial-steps-description">Transform your mornings with a simple, potent, and powerful ritual that
+                fuels your day.</p>
+            <div id="steps-flex">
+                <div class="step-container">
+                    <p class="step-no">1</p>
+                    <div class="step-content">
+                        <p class="step-title">Prep your favorite drink</p>
+                        <p class="step-descrip">Start your morning with your favorite beverage, whether it's a
+                            nutrient-packed smoothie or a warm cup of tea.</p>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <p class="step-no">2</p>
+                    <div class="step-content">
+                        <p class="step-title">Take a scoop</p>
+                        <p class="step-descrip">Simply add one potent scoop packed with x10 the potency to boost energy,
+                            enhance clarity, and support wellness all day.</p>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <p class="step-no">3</p>
+                    <div class="step-content">
+                        <p class="step-title">Customize and mix</p>
+                        <p class="step-descrip">Personalize your morning drink. Stir well for a perfectly blended,
+                            nutrient-rich beverage that awakens your mind and prepares you for the day.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="primary-button">
+                <p class="button-text">See how people are using Alcami</p>
+                <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
+            </button>
+        </div>
+        <div class="tutorial-video-container">
+            <img width="100%" height="514" src="./assets/banners/founder-video-thumbnail.png" alt="video-thumbnail"
+                class="tutorial-video-thumbnail">
+            <video src="./assets/video/founder-video.mp4" controls muted autoplay class="tutorial-video">
+            </video>
+        </div>
+    </div>
     tutorial
     <!-- tutorial end -->
 
@@ -284,7 +327,6 @@
                 incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod </p>
         </div>
     </div>
-    video
     <!-- founder video end -->
 
     <!-- customer reviews start -->
@@ -452,6 +494,13 @@
     videoThumbnail.addEventListener("click", function () {
         videoThumbnail.style.display = "none";
         founderVideo.style.display = "block"
+    });
+
+    var tutorialThumbnail = document.getElementsByClassName("tutorial-video-thumbnail")[0];
+    var tutorialVideo = document.getElementsByClassName("tutorial-video")[0];
+    tutorialThumbnail.addEventListener("click", function () {
+        tutorialThumbnail.style.display = "none";
+        tutorialVideo.style.display = "block"
     })
 
 </script>
