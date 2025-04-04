@@ -920,7 +920,7 @@ a:focus{
 }
 /* tutorial end */
 
-/* why start */
+/* founder video start */
 #video-container{
     width:100%;
     height: 514px;
@@ -982,13 +982,61 @@ a:focus{
         font-size:var(--sm);
     }
 }
-/* why end */
+/* founder video end */
+
+/* percentage start */
+  
+#percentage-bg-wrapper{
+    width: 100%;
+    background-image: url("../assets/banners/percentage-banner.jpg");
+    background-size: cover;
+    height:300px;
+    background-position: center;
+}
+#percentage-bg{
+   background-color: #00000041;
+   width: 100%;
+   height: 100%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+.percentage-flex{
+    width: 100%;
+    display:flex;
+    gap:1rem;
+    justify-content:space-between;
+    align-items: start;
+    margin: auto;
+}
+.percentage-container{
+  display:flex;
+  flex-direction: column;
+  gap:0.5rem;
+  justify-content: start;
+  align-items: start;
+}
+.percentage{
+  color:var(--secondary);
+  font-size: 40px;
+  font-weight: 700;
+}
+.percentage-container>span{
+    padding-top:4px;
+}
+.percentage-descrip{
+  font-size: var(--sm);
+  color:var(--secondary)
+}
+
+/* percentage end */
 
 /* customers reviews start */
 .reviews-bg-wrapper{
    background-color:  #B8B8B8CC;
    width: 100%;
-   padding: 2rem 0rem;
+   padding: 2rem 0rem 1rem;
+   margin-bottom: 1rem;
 }
 
 #customer-header-and-arrows{
@@ -1124,7 +1172,7 @@ a:focus{
     display: none;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1024px){
     #reviews-container,
     .dots-container,
     #arrows-container{
