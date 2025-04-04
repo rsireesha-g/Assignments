@@ -16,17 +16,21 @@ shopDropdown.addEventListener("click", function () {
 })
 
 var searchIcon = document.getElementsByClassName("header-search-icon")[0];
-searchIcon.addEventListener("click", function () {
-    var searchBar = document.getElementsByClassName("search-container")[0];
-    var headerLinks = document.getElementsByClassName("header-links")[0];
-    if (headerLinks.style.display === "flex") {
-        searchBar.style.display = "block";
-        headerLinks.style.display = "none"
-    } else {
+var searchBar = document.getElementsByClassName("search-container")[0];
+var headerLinks = document.getElementsByClassName("header-links")[0];
+
+
+function searchBarOpenClose(type) {
+    if (type === "close") {
         searchBar.style.display = "none";
-        headerLinks.style.display = "flex"
+        headerLinks.style.display = "flex";
+        searchIcon.style.display = "block"
+    } else {
+        searchBar.style.display = "flex";
+        headerLinks.style.display = "none";
+        searchIcon.style.display = "none"
     }
-})
+}
 
 // mobile hamburger and menu open and close
 
