@@ -238,15 +238,18 @@
             <p class="category-title"></p>
             <div class="categories-grid">
                 <div class="flavour-box">
-                    <div class="flavour-type"><input type="radio" name="original" id="">Original</div>
+                    <div class="flavour-type"><input type="radio" name="original" id=""
+                            onchange="flavourType('original')">Original</div>
                     <div class="flavour-img"><img src="./assets/svg/flavour1.png" alt="original"></div>
                 </div>
                 <div class="flavour-box">
-                    <div class="flavour-type"><input type="radio" name="macho" id="">Matcha</div>
+                    <div class="flavour-type"><input type="radio" name="macho" id="" onchange="flavourType('matcha')">
+                        Matcha</div>
                     <div class="flavour-img"><img src="./assets/svg/flavour2-1.png" alt="matcha"></div>
                 </div>
                 <div class="flavour-box">
-                    <div class="flavour-type"><input type="radio" name="cacao" id="">Cacao</div>
+                    <div class="flavour-type"><input type="radio" name="cacao" id=""
+                            onchange="flavourType('cacao')">Cacao</div>
                     <div class="flavour-img"><img src="./assets/svg/flavour3-1.png" alt="cacao"></div>
                 </div>
             </div>
@@ -255,7 +258,9 @@
                 <div class="subscription-container">
                     <div class="subscription-header">
                         <div class="subscrip-left">
-                            <input type="radio" name="" id="">
+                            <input type="radio" value="single-kit-subscription-type" name="single-kit-subscription-type"
+                                onchange="subscriptionType('double-kit-subscription-type')" id="single-kit"
+                                class="subscription-radio-btn">
                             <p class="subscrip-title">Single Kit Subscription</p>
                         </div>
                         <p class="subscrip-price">
@@ -302,7 +307,9 @@
                 <div class="subscription-container">
                     <div class="subscription-header">
                         <div class="subscrip-left">
-                            <input type="radio" name="" id="">
+                            <input type="radio" name="double-kit-subscription-type" value="double-kit-subscription-type"
+                                onchange="subscriptionType('double-kit-subscription-type')" id="double-kit"
+                                class="subscription-radio-btn">
                             <p class="subscrip-title">Double Kit Subscription</p>
                         </div>
                         <p class="subscrip-price">
@@ -314,7 +321,8 @@
                 <div class="subscription-container">
                     <div class="subscription-header">
                         <div class="subscrip-left">
-                            <input type="radio" name="" id="">
+                            <input type="radio" name="try-once" value="try-once" id="try-once"
+                                class="subscription-radio-btn" onchange="subscriptionType('try-once')">
                             <p class="subscrip-title">Try Once</p>
                         </div>
                         <p class="subscrip-price">
@@ -324,7 +332,7 @@
                 </div>
             </div>
             <button class="primary-button add-to-cart-btn">
-                <p class="button-text">Add To Cart</p>
+                <p class="button-text" onclick="addToCart()">Add To Cart</p>
                 <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
             </button>
         </div>
@@ -385,15 +393,18 @@
                         <img src="./assets/svg/bone-health.svg" alt="bone-health" class="him-content-img">
                         <div class="him-content-text">
                             <p class="him-text-header">Enhances Bone and Men's Health</p>
-                            <p class="him-text-description">Shilajit provides essential minerals for strong bones and
-                                has traditional uses in supporting men's reproductive health and testosterone levels</p>
+                            <p class="him-text-description">Shilajit provides essential minerals for strong bones
+                                and
+                                has traditional uses in supporting men's reproductive health and testosterone levels
+                            </p>
                         </div>
                     </div>
                     <div class="him-content-flex-box">
                         <img src="./assets/svg/stress-relief.svg" alt="stress-relief" class="him-content-img">
                         <div class="him-content-text">
                             <p class="him-text-header">Promotes Cognitive Function & Stress Relief</p>
-                            <p class="him-text-description">Shilajit may improve mental clarity, focus, and memory while
+                            <p class="him-text-description">Shilajit may improve mental clarity, focus, and memory
+                                while
                                 helping the body adapt to stress, enhancing overall resilience.</p>
                         </div>
                     </div>
@@ -401,8 +412,10 @@
                         <img src="./assets/svg/immunity.svg" alt="immunity" class="him-content-img">
                         <div class="him-content-text">
                             <p class="him-text-header">Supports Immune Health & Anti-Aging</p>
-                            <p class="him-text-description">Rich in antioxidants, Shilajit aids in reducing oxidative
-                                stress, boosting the immune system, and promoting skin health for a youthful appearance
+                            <p class="him-text-description">Rich in antioxidants, Shilajit aids in reducing
+                                oxidative
+                                stress, boosting the immune system, and promoting skin health for a youthful
+                                appearance
                             </p>
                         </div>
                     </div>
@@ -442,7 +455,8 @@
     <div class="container tutorial-container">
         <div class="tutorial-steps">
             <p id="tutorial-steps-heading">Your morning ritual, made to awaken your mind.</p>
-            <p id="tutorial-steps-description">Transform your mornings with a simple, potent, and powerful ritual that
+            <p id="tutorial-steps-description">Transform your mornings with a simple, potent, and powerful ritual
+                that
                 fuels your day.</p>
             <div id="steps-flex">
                 <div class="step-container">
@@ -457,7 +471,8 @@
                     <p class="step-no">2</p>
                     <div class="step-content">
                         <p class="step-title">Take a scoop</p>
-                        <p class="step-descrip">Simply add one potent scoop packed with x10 the potency to boost energy,
+                        <p class="step-descrip">Simply add one potent scoop packed with x10 the potency to boost
+                            energy,
                             enhance clarity, and support wellness all day.</p>
                     </div>
                 </div>
@@ -573,8 +588,10 @@
                     <p id="customer-descrip">Real people, real reviews</p>
                 </div>
                 <div id="arrows-container">
-                    <div class="arrow prev"><img src="./assets/svg/right-arrow.svg" alt="prev" class="arrow-icon"></div>
-                    <div class="arrow next"><img src="./assets/svg/right-arrow.svg" alt="next" class="arrow-icon"></div>
+                    <div class="arrow prev"><img src="./assets/svg/right-arrow.svg" alt="prev" class="arrow-icon">
+                    </div>
+                    <div class="arrow next"><img src="./assets/svg/right-arrow.svg" alt="next" class="arrow-icon">
+                    </div>
                 </div>
             </div>
             <div id="reviews-container"></div>
@@ -748,5 +765,26 @@
 <script src="./js/percentage-odometer.js"></script>
 <script src="./js/mini-pdp.js"></script>
 <script>
+    var productSelectedObj = {
+        flavour: "original",
+        subscriptonType: "single-kit-subscription-plan",
+        name: 'Alcami Elements',
+        description: 'Discover the ancient wisdom supported by modern science, all within the synergy ofAlcami Elements. Designed for those who aspire to elevate every facet of life with awareness and',
+        rating: '4',
+        reviewsCount: '999+',
+    }
+
+    function subscriptionType(type) {
+        productSelectedObj = { ...productSelectedObj, ["subscriptonType"]: type }
+    }
+
+    function flavourType(type) {
+        productSelectedObj = { ...productSelectedObj, ["flavour"]: type }
+    }
+
+    function addToCart() {
+        console.log(productSelectedObj)
+        localStorage.setItem("cart", productSelectedObj)
+    }
 
 </script>

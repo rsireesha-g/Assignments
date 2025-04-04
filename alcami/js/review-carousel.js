@@ -50,7 +50,6 @@ function reviewsDataMapping() {
     document.getElementById("reviews-container").innerText = ""
     reviewsData.forEach((review, i) => {
         if (i < 3 && prevIndex < reviewsCount) {
-            console.log(i, "reviewsData", i + prevIndex)
 
             var box = document.createElement("div");
             box.setAttribute("class", "review-box");

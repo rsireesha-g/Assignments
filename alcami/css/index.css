@@ -830,6 +830,7 @@ a:focus{
 }
 input[type="radio"]{
     cursor: pointer;
+    accent-color:var(--heading-color)
 }
 .subscrip-type>span{
     background: linear-gradient(90deg, #9E6718 0%, #FFB545 100%);
