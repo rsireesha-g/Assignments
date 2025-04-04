@@ -398,7 +398,23 @@
     <!-- founder video end -->
 
     <!-- customer reviews start -->
-    reviews
+    <div class="reviews-bg-wrapper">
+        <div class="container">
+            <div id="customer-header-and-arrows">
+                <div id="customer-header">
+                    <p id="customer-heading">What our customers are saying</p>
+                    <p id="customer-descrip">Real people, real reviews</p>
+                </div>
+                <div id="arrows-container">
+                    <div class="arrow prev"><img src="./assets/svg/right-arrow.svg" alt="prev" class="arrow-icon"></div>
+                    <div class="arrow next"><img src="./assets/svg/right-arrow.svg" alt="next" class="arrow-icon"></div>
+                </div>
+            </div>
+            <div id="reviews-container"></div>
+            <div class="dots-container"></div>
+            <div id="reviews-container-mobile"></div>
+        </div>
+    </div>
     <!-- customer reviews end -->
 
     <!-- faq start -->
@@ -556,74 +572,208 @@
 </html>
 
 <script src="./js/faq.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/video.js"></script>
 <script>
-    var videoThumbnail = document.getElementsByClassName("video-thumbnail")[0];
-    var founderVideo = document.getElementsByClassName("founder-video")[0];
-    videoThumbnail.addEventListener("click", function () {
-        videoThumbnail.style.display = "none";
-        founderVideo.style.display = "block"
-    });
-
-    var tutorialThumbnail = document.getElementsByClassName("tutorial-video-thumbnail")[0];
-    var tutorialVideo = document.getElementsByClassName("tutorial-video")[0];
-    tutorialThumbnail.addEventListener("click", function () {
-        tutorialThumbnail.style.display = "none";
-        tutorialVideo.style.display = "block"
-    })
-
-    var shopDropdown = document.getElementsByClassName("link-title")[0];
-    shopDropdown.addEventListener("click", function () {
-        var chevron = document.getElementsByClassName("chevron")[0];
-        var dropdown = document.getElementsByClassName("shop-dropdown")[0];
-        if (dropdown.style.display === "none") {
-            dropdown.style.display = "block";
-            dropdown.style.animationName = "fade-in";
-            chevron.style.transform = "rotate(180deg)";
-        } else {
-            dropdown.style.display = "none";
-            dropdown.style.animationName = "fade-out";
-            chevron.style.transform = "rotate(0deg)";
+    var reviewsData = [
+        {
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 3,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 2,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 3,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 4,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
+        }, {
+            rating: 2,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum natus sunt quidem perspiciatis nulla nam debitis. Repellat ea ad temporibus sunt cumque aperiam, dolor laborum facere nostrum officiis illum.",
+            profileImg: "./assets/svg/profile-icon.svg",
+            name: "Name Surname",
+            designation: "position, company name"
         }
-    })
+    ]
 
-    var searchIcon = document.getElementsByClassName("header-search-icon")[0];
-    searchIcon.addEventListener("click", function () {
-        var searchBar = document.getElementsByClassName("search-container")[0];
-        var headerLinks = document.getElementsByClassName("header-links")[0];
-        if (headerLinks.style.display === "flex") {
-            searchBar.style.display = "block";
-            headerLinks.style.display = "none"
-        } else {
-            searchBar.style.display = "none";
-            headerLinks.style.display = "flex"
+    var prevIndex = 0;
+    var reviewsCount = reviewsData?.length || 0;
+    function reviewsDataMapping() {
+        document.getElementById("reviews-container").innerText = ""
+        reviewsData.forEach((review, i) => {
+            if (i < 3 && prevIndex < reviewsCount) {
+                console.log(i, "reviewsData", i + prevIndex)
+
+                var box = document.createElement("div");
+                box.setAttribute("class", "review-box");
+
+                var starBox = document.createElement("div");
+                starBox.setAttribute("class", "stars-box");
+
+                for (let j = 0; j < 5; j++) {
+                    var star = document.createElement("img");
+                    star.setAttribute("class", "star")
+                    if (j + 1 <= reviewsData[i + prevIndex]?.rating) {
+                        star.src = "./assets/svg/star-filled.svg"
+                    } else {
+                        star.src = "./assets/svg/star-empty.svg"
+                    }
+                    starBox.append(star)
+                }
+
+                var review = document.createElement("p");
+                review.setAttribute("class", "review");
+                review.innerText = reviewsData[i + prevIndex]?.description;
+
+                var reviewerProfile = document.createElement("div");
+                reviewerProfile.setAttribute("class", "reviewer-profile");
+
+                var profile = document.createElement("div");
+                profile.setAttribute("class", "profile");
+                var profileIcon = document.createElement("img");
+                profileIcon.setAttribute("class", "profile-icon");
+                profileIcon.src = reviewsData[i + prevIndex]?.profileImg;
+                profile.append(profileIcon);
+
+                var profileData = document.createElement("div");
+                profileData.setAttribute("class", "profile-data");
+                var profileName = document.createElement("div");
+                profileName.setAttribute("class", "profile-name");
+                var profileDescrip = document.createElement("div");
+                profileDescrip.setAttribute("class", "profile-descrip");
+                profileName.innerText = reviewsData[i + prevIndex]?.name;
+                profileDescrip.innerText = reviewsData[i + prevIndex]?.designation;
+                profileData.append(profileName, profileDescrip);
+
+                reviewerProfile.append(profile, profileData);
+                box.append(starBox, review, reviewerProfile);
+
+                document.getElementById("reviews-container").append(box)
+
+            }
+        });
+    }
+    reviewsDataMapping();
+
+    function dotsMapping() {
+        document.getElementsByClassName("dots-container")[0].innerText = "";
+        for (let j = 0; j < reviewsCount - 2; j++) {
+            var dot = document.createElement("div");
+            dot.setAttribute("class", "dot")
+            if (j <= prevIndex) {
+                dot.style.background = "#333"
+            } else {
+                dot.style.background = "none"
+            }
+            document.getElementsByClassName("dots-container")[0].append(dot)
         }
+    }
+
+    dotsMapping();
+
+    var prevArrow = document.getElementsByClassName("prev")[0];
+    var nextArrow = document.getElementsByClassName("next")[0];
+
+    nextArrow.addEventListener("click", function () {
+        prevIndex < reviewsCount - 3 ? prevIndex += 1 : prevIndex;
+        if (prevIndex >= reviewsCount - 3) {
+            nextArrow.style.background = "none";
+        } else {
+            nextArrow.style.background = "#666";
+        }
+        prevArrow.style.background = "#666";
+        reviewsDataMapping();
+        dotsMapping();
     })
 
-    var hamburger = document.getElementsByClassName("hamburger")[0];
-    hamburger.addEventListener("click", function () {
-        var menuModal = document.getElementsByClassName("menu-modal")[0];
-        menuModal.style.display = "block";
-        menuModal.style.animationName = "slide-in"
-    });
-
-    var menuClose = document.getElementsByClassName("menu-close")[0];
-    menuClose.addEventListener("click", function () {
-        var menuModal = document.getElementsByClassName("menu-modal")[0];
-        menuModal.style.display = "none";
-        menuModal.style.animationName = "slide-out"
+    prevArrow.addEventListener("click", function () {
+        prevIndex > 0 ? prevIndex -= 1 : prevIndex;
+        if (prevIndex === 0) {
+            prevArrow.style.background = "none";
+        } else {
+            prevArrow.style.background = "#666";
+        }
+        nextArrow.style.background = "#666";
+        reviewsDataMapping();
+        dotsMapping();
     })
 
-    var mobileSearchIcon = document.getElementsByClassName("header-mobile-search-icon")[0];
-    mobileSearchIcon.addEventListener("click", function () {
-        var searchModal = document.getElementsByClassName("search-modal")[0];
-        searchModal.style.display = "block";
-        searchModal.style.animationName = "slide-in"
-    });
+    function reviewsDataMappingMobile() {
+        document.getElementById("reviews-container-mobile").innerText = ""
+        reviewsData.forEach((review, i) => {
 
-    var searchClose = document.getElementsByClassName("search-close")[0];
-    searchClose.addEventListener("click", function () {
-        var searchModal = document.getElementsByClassName("search-modal")[0];
-        searchModal.style.display = "none";
-        searchModal.style.animationName = "slide-out"
-    })
+            var box = document.createElement("div");
+            box.setAttribute("class", "review-box");
+
+            var starBox = document.createElement("div");
+            starBox.setAttribute("class", "stars-box");
+
+            for (let j = 0; j < 5; j++) {
+                var star = document.createElement("img");
+                star.setAttribute("class", "star")
+                if (j + 1 <= reviewsData[i + prevIndex]?.rating) {
+                    star.src = "./assets/svg/star-filled.svg"
+                } else {
+                    star.src = "./assets/svg/star-empty.svg"
+                }
+                starBox.append(star)
+            }
+
+            var review = document.createElement("p");
+            review.setAttribute("class", "review");
+            review.innerText = reviewsData[i + prevIndex]?.description;
+
+            var reviewerProfile = document.createElement("div");
+            reviewerProfile.setAttribute("class", "reviewer-profile");
+
+            var profile = document.createElement("div");
+            profile.setAttribute("class", "profile");
+            var profileIcon = document.createElement("img");
+            profileIcon.setAttribute("class", "profile-icon");
+            profileIcon.src = reviewsData[i + prevIndex]?.profileImg;
+            profile.append(profileIcon);
+
+            var profileData = document.createElement("div");
+            profileData.setAttribute("class", "profile-data");
+            var profileName = document.createElement("div");
+            profileName.setAttribute("class", "profile-name");
+            var profileDescrip = document.createElement("div");
+            profileDescrip.setAttribute("class", "profile-descrip");
+            profileName.innerText = reviewsData[i + prevIndex]?.name;
+            profileDescrip.innerText = reviewsData[i + prevIndex]?.designation;
+            profileData.append(profileName, profileDescrip);
+
+            reviewerProfile.append(profile, profileData);
+            box.append(starBox, review, reviewerProfile);
+
+            document.getElementById("reviews-container-mobile").append(box)
+
+        });
+    }
+    reviewsDataMappingMobile();
 </script>
