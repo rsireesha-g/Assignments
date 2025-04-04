@@ -549,12 +549,12 @@
     <!-- percentage end -->
 
     <!-- why alcami start -->
-    <div class="container">
+    <!-- <div class="container">
         <p id="why-header"></p>
         <table>
             why
         </table>
-    </div>
+    </div> -->
     <!-- why alcami end -->
 
     <!-- founder video start -->
@@ -764,27 +764,3 @@
 <script src="./js/review-carousel.js"></script>
 <script src="./js/percentage-odometer.js"></script>
 <script src="./js/mini-pdp.js"></script>
-<script>
-    var productSelectedObj = {
-        flavour: "original",
-        subscriptonType: "single-kit-subscription-plan",
-        name: 'Alcami Elements',
-        description: 'Discover the ancient wisdom supported by modern science, all within the synergy ofAlcami Elements. Designed for those who aspire to elevate every facet of life with awareness and',
-        rating: '4',
-        reviewsCount: '999+',
-    }
-
-    function subscriptionType(type) {
-        productSelectedObj = { ...productSelectedObj, ["subscriptonType"]: type }
-    }
-
-    function flavourType(type) {
-        productSelectedObj = { ...productSelectedObj, ["flavour"]: type }
-    }
-
-    function addToCart() {
-        console.log(productSelectedObj)
-        localStorage.setItem("cart", productSelectedObj)
-    }
-
-</script>

@@ -88,3 +88,25 @@ prevArrow.addEventListener("click", function () {
 
 dotsMapping();
 pdpImagesMapping();
+
+var productSelectedObj = {
+    flavour: "original",
+    subscriptonType: "single-kit-subscription-plan",
+    name: 'Alcami Elements',
+    description: 'Discover the ancient wisdom supported by modern science, all within the synergy ofAlcami Elements. Designed for those who aspire to elevate every facet of life with awareness and',
+    rating: '4',
+    reviewsCount: '999+',
+}
+
+function subscriptionType(type) {
+    productSelectedObj = { ...productSelectedObj, ["subscriptonType"]: type }
+}
+
+function flavourType(type) {
+    productSelectedObj = { ...productSelectedObj, ["flavour"]: type }
+}
+
+function addToCart() {
+    console.log(productSelectedObj)
+    localStorage.setItem("cart", productSelectedObj)
+}
