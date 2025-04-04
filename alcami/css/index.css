@@ -1001,10 +1001,11 @@ a:focus{
    justify-content: center;
    align-items: center;
 }
-.percentage-flex{
+.percentage-grid{
     width: 100%;
-    display:flex;
+    display:grid;
     gap:1rem;
+    grid-template-columns: repeat(4,1fr);
     justify-content:space-between;
     align-items: start;
     margin: auto;
@@ -1015,6 +1016,7 @@ a:focus{
   gap:0.5rem;
   justify-content: start;
   align-items: start;
+  
 }
 .percentage{
   color:var(--secondary);
@@ -1027,6 +1029,12 @@ a:focus{
 .percentage-descrip{
   font-size: var(--sm);
   color:var(--secondary)
+}
+
+@media screen and (max-width:768px){
+    .percentage-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 /* percentage end */
