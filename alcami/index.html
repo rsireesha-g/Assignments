@@ -244,7 +244,6 @@
         </div>
 
     </div>
-    subscibe
     <!-- subscribe and save banner end-->
 
     <!-- tutorial start -->
@@ -257,9 +256,34 @@
 
     <!-- why alcami start -->
     why
+    <div class="container">
+        <p id="why-header"></p>
+        <table>
+
+        </table>
+    </div>
     <!-- why alcami end -->
 
     <!-- founder video start -->
+    <div class="container">
+        <div class="video-container">
+            <img width="100%" height="514" src="./assets/banners/founder-video-thumbnail.png" alt="video-thumbnail"
+                class="video-thumbnail">
+            <video src="./assets/video/founder-video.mp4" controls muted autoplay class="founder-video">
+            </video>
+        </div>
+        <div id="video-content">
+            <div id="video-right">
+                <p id="video-title">From the Founders</p>
+                <button class="primary-button">
+                    <p class="button-text">About Us</p>
+                    <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
+                </button>
+            </div>
+            <p id="video-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod </p>
+        </div>
+    </div>
     video
     <!-- founder video end -->
 
@@ -422,3 +446,12 @@
 </html>
 
 <script src="./js/faq.js"></script>
+<script>
+    var videoThumbnail = document.getElementsByClassName("video-thumbnail")[0];
+    var founderVideo = document.getElementsByClassName("founder-video")[0];
+    videoThumbnail.addEventListener("click", function () {
+        videoThumbnail.style.display = "none";
+        founderVideo.style.display = "block"
+    })
+
+</script>
