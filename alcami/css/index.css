@@ -12,7 +12,6 @@ body{
     font-family: NewRailAlphabet;
     font-weight: 300;
     width:100%;
-    border:2px solid rgb(0, 255, 94);
     margin:0px auto;
     box-sizing: border-box;
 }
@@ -57,7 +56,6 @@ a:focus{
 .container{
     width:100%;
     max-width:1360px;
-    border:1px solid red;
     padding:1rem;
     margin:0rem auto 1rem;
     box-sizing: border-box;
@@ -1011,7 +1009,6 @@ input[type="radio"]{
     background-image: url("../assets/banners/subscription-banner.jpg");
     background-position: right;
     background-size: cover;
-    border:1px solid red;
     background-repeat: no-repeat;
  }
 #subscription-content-container{
