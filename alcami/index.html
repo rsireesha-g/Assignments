@@ -13,9 +13,78 @@
 </head>
 
 <body>
-    Alcami
     <!-- header start -->
-    <div class="container">Header</div>
+    <div id="strip">
+        Get 25% off your first month. Free Shipping on U.S orders.
+    </div>
+    <div class="container">
+        <div id="header-desktop">
+            <a href="/" id="logo">
+                <img src="./assets/svg/logo-black.svg" alt="Alcami">
+            </a>
+            <div class="header-links">
+                <a class="header-link" href="/">Home</a>
+                <div id="dropdown-wrapper">
+                    <div class="link-title">
+                        <a class="header-link" href="#">Shop</a>
+                        <img src="./assets/svg/chevron.svg" alt="chevron" class="chevron">
+                    </div>
+
+                    <div class="shop-dropdown">
+                        <div class="dropdown-values">
+                            <a class="header-link" href="#">Shop1</a>
+                            <a class="header-link" href="#">Shop2</a>
+                            <a class="header-link" href="#">Shop3</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="header-link" href="#">Elements</a>
+                <a class="header-link" href="#">About Us</a>
+                <a class="header-link" href="#">Blog</a>
+                <a class="header-link" href="#footer">Contact</a>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search For Products...">
+            </div>
+            <div class="search-icon-container">
+                <img src="./assets/svg/search-icon.svg" alt="Search" class="header-search-icon">
+                <button class="primary-button">
+                    <p class="button-text">Try Alcami</p>
+                    <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
+                </button>
+            </div>
+        </div>
+        <div id="header-mobile">
+            <div class="hamburger">
+                <img src="./assets/svg/hamburger.svg" alt="Alcami">
+            </div>
+            <div class="search-icon-container">
+                <img src="./assets/svg/search-icon.svg" alt="Search" class="header-mobile-search-icon">
+                <button class="primary-button">
+                    <p class="button-text">Try Alcami</p>
+                    <img src="./assets/svg/right-arrow.svg" alt="right-arrow" class="button-arrow">
+                </button>
+            </div>
+        </div>
+        <div class="menu-modal">
+            <img src="./assets/svg/plus.svg" alt="close" class="menu-close">
+            <div class="mobile-header-links">
+                <a class="header-link" href="/">Home</a>
+                <a class="header-link" href="/">Shop</a>
+                <a class="header-link" href="#">Elements</a>
+                <a class="header-link" href="#">About Us</a>
+                <a class="header-link" href="#">Blog</a>
+                <a class="header-link" href="#footer">Contact</a>
+            </div>
+        </div>
+        <div class="search-modal">
+            <div class="mobile-search-container">
+                <input type="text" placeholder="Search For Products...">
+                <img src="./assets/svg/plus.svg" alt="close" class="search-close">
+            </div>
+        </div>
+    </div>
     <!-- header end -->
 
     <!-- home banner start -->
@@ -290,7 +359,6 @@
             </video>
         </div>
     </div>
-    tutorial
     <!-- tutorial end -->
 
     <!-- percentage start -->
@@ -503,4 +571,59 @@
         tutorialVideo.style.display = "block"
     })
 
+    var shopDropdown = document.getElementsByClassName("link-title")[0];
+    shopDropdown.addEventListener("click", function () {
+        var chevron = document.getElementsByClassName("chevron")[0];
+        var dropdown = document.getElementsByClassName("shop-dropdown")[0];
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+            dropdown.style.animationName = "fade-in";
+            chevron.style.transform = "rotate(180deg)";
+        } else {
+            dropdown.style.display = "none";
+            dropdown.style.animationName = "fade-out";
+            chevron.style.transform = "rotate(0deg)";
+        }
+    })
+
+    var searchIcon = document.getElementsByClassName("header-search-icon")[0];
+    searchIcon.addEventListener("click", function () {
+        var searchBar = document.getElementsByClassName("search-container")[0];
+        var headerLinks = document.getElementsByClassName("header-links")[0];
+        if (headerLinks.style.display === "flex") {
+            searchBar.style.display = "block";
+            headerLinks.style.display = "none"
+        } else {
+            searchBar.style.display = "none";
+            headerLinks.style.display = "flex"
+        }
+    })
+
+    var hamburger = document.getElementsByClassName("hamburger")[0];
+    hamburger.addEventListener("click", function () {
+        var menuModal = document.getElementsByClassName("menu-modal")[0];
+        menuModal.style.display = "block";
+        menuModal.style.animationName = "slide-in"
+    });
+
+    var menuClose = document.getElementsByClassName("menu-close")[0];
+    menuClose.addEventListener("click", function () {
+        var menuModal = document.getElementsByClassName("menu-modal")[0];
+        menuModal.style.display = "none";
+        menuModal.style.animationName = "slide-out"
+    })
+
+    var mobileSearchIcon = document.getElementsByClassName("header-mobile-search-icon")[0];
+    mobileSearchIcon.addEventListener("click", function () {
+        var searchModal = document.getElementsByClassName("search-modal")[0];
+        searchModal.style.display = "block";
+        searchModal.style.animationName = "slide-in"
+    });
+
+    var searchClose = document.getElementsByClassName("search-close")[0];
+    searchClose.addEventListener("click", function () {
+        var searchModal = document.getElementsByClassName("search-modal")[0];
+        searchModal.style.display = "none";
+        searchModal.style.animationName = "slide-out"
+    })
 </script>
