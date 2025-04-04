@@ -514,7 +514,7 @@ a{
     display:flex;
     gap:1rem;
     padding:unset;
-    background-image: url("../assets/banners/subscription-banner1.jpg");
+    background-image: url("../assets/banners/subscription-banner.jpg");
     background-position: right;
     background-size: cover;
     border:1px solid red;
