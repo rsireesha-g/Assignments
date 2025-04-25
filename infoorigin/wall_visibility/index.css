@@ -43,6 +43,10 @@ header{
     border:1px solid rgba(0, 81, 255, 0.8);
     outline-width: 0px;
 }
+.input_field:disabled:active,
+.input_field:disabled:focus{
+    border:1px solid lightgray
+}
 .input_error{
     border:1px solid rgba(226, 7, 7, 0.773);
 }
