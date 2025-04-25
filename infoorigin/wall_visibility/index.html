@@ -5,11 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-
+    <header>
+        <h2 class="title">Wall Visualization</h2>
+    </header>
+    <div class="container">
+        <div class="inputs_grid">
+            <div>
+                <label class="input_label">Number of Walls :</label>
+                <input type="text" class="input_field" id="wall_number_input_field" placeholder="Eg: 5" min="1" max="30"
+                    onchange="getWallNumber()">
+                <p class="error" id="number_error"></p>
+            </div>
+            <div>
+                <label class="input_label">Height of Walls :</label>
+                <input type="text" class="input_field" id="wall_heights_input_field" placeholder="Eg: 4,1,5,2..."
+                    onchange="getWallHeights()">
+                <p class="error" id="heights_error"></p>
+            </div>
+        </div>
+        <div class="graph_container">
+            <div class="person_figure">
+                <div class="person_head"></div>
+                <div class="person_body">
+                    <div class="left_hand"></div>
+                    <div class="right_hand"></div>
+                    <div class="main_body"></div>
+                    <div class="visible_count" id="left_side_visible_count"></div>
+                </div>
+            </div>
+            <div class="person_figure">
+                <div class="person_head"></div>
+                <div class="person_body">
+                    <div class="left_hand"></div>
+                    <div class="right_hand"></div>
+                    <div class="main_body"></div>
+                    <div class="visible_count" id="left_side_visible_count"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="index.js"></script>
 
