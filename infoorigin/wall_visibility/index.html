@@ -16,7 +16,7 @@
         <div class="inputs_grid">
             <div>
                 <label class="input_label">Number of Walls :</label>
-                <input type="text" class="input_field" id="wall_number_input_field" placeholder="Eg: 5" min="1" max="30"
+                <input type="text" class="input_field" id="wall_number_input_field" placeholder="Eg: 5" min="1" max="20"
                     onchange="getWallNumber()">
                 <p class="error" id="number_error"></p>
             </div>
@@ -27,24 +27,99 @@
                 <p class="error" id="heights_error"></p>
             </div>
         </div>
-        <div class="graph_container">
-            <div class="person_figure">
-                <div class="person_head"></div>
-                <div class="person_body">
-                    <div class="left_hand"></div>
-                    <div class="right_hand"></div>
-                    <div class="main_body"></div>
-                    <div class="visible_count" id="left_side_visible_count"></div>
+        <div class="wall_data_container">
+            <div class="graph_container">
+                <div class="person_left">
+                    <div class="person_figure">
+                        <div class="person_head"></div>
+                        <div class="person_body">
+                            <div class="left_hand"></div>
+                            <div class="right_hand"></div>
+                            <div class="main_body"></div>
+                            <div class="visible_count" id="left_side_visible_count"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bar_chart_container">
+                    <div class="bar_chart">
+
+
+                        <div class="item" style=" --val: 80">
+                            <div class="label">Label 10</div>
+                        </div>
+
+                        <div class="item" style="--val: 50">
+                            <div class="label">Label 2</div>
+                        </div>
+
+                        <div class="item" style="--val: 100">
+                            <div class="label">Label 3</div>
+                        </div>
+
+                        <div class="item" style="--val: 15">
+                            <div class="label">Label 4</div>
+                        </div>
+
+                        <div class="item" style="--val: 1">
+                            <div class="label">Label 5</div>
+                        </div>
+                        <div class="item" style=" --val: 80">
+                            <div class="label">Label 1</div>
+                        </div>
+
+                        <div class="item" style="--val: 50">
+                            <div class="label">Label 2</div>
+                        </div>
+
+                        <div class="item" style="--val: 100">
+                            <div class="label">Label 3</div>
+                        </div>
+
+                        <div class="item" style="--val: 15">
+                            <div class="label">Label 4</div>
+                        </div>
+
+                        <div class="item" style="--val: 1">
+                            <div class="label">Label 5</div>
+                        </div>
+                        <div class="item" style=" --val: 80">
+                            <div class="label">Label 1</div>
+                        </div>
+
+                        <div class="item" style="--val: 50">
+                            <div class="label">Label 2</div>
+                        </div>
+
+                        <div class="item" style="--val: 100">
+                            <div class="label">Label 3</div>
+                        </div>
+
+                        <div class="item" style="--val: 15">
+                            <div class="label">Label 4</div>
+                        </div>
+
+
+
+                        <div class="item" style="--clr: #069CDB; --val: 90">
+                            <div class="label">Label 6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="person_right">
+                    <div class="person_figure">
+                        <div class="person_head"></div>
+                        <div class="person_body">
+                            <div class="left_hand"></div>
+                            <div class="right_hand"></div>
+                            <div class="main_body"></div>
+                            <div class="visible_count" id="left_side_visible_count"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="person_figure">
-                <div class="person_head"></div>
-                <div class="person_body">
-                    <div class="left_hand"></div>
-                    <div class="right_hand"></div>
-                    <div class="main_body"></div>
-                    <div class="visible_count" id="left_side_visible_count"></div>
-                </div>
+            <div class="visibility_data_flex">
+                <p class="visibility_data">Walls visible from person on right = </p>
+                <p class="visibility_data">Walls visible from person on left = </p>
             </div>
         </div>
     </div>

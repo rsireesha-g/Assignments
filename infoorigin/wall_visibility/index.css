@@ -1,4 +1,4 @@
-body{
+body,p,h1{
     padding: 0;
     margin: 0;
 }
@@ -13,9 +13,9 @@ header{
 }
 
 .container{
-    width: 100%;
+    width: fit-content;
     padding:12px;
-    margin-top: 2rem;
+    margin: 2rem auto;
 }
 .inputs_grid{
     width: fit-content;
@@ -48,12 +48,91 @@ header{
     color:rgba(226, 7, 7, 0.773);
     margin: 0;
 }
+
+
+/* graph */
+.wall_data_container{
+    width:100%;
+    height:500px;
+    border:1px solid grey;
+    background-size: 25px 25px;
+    background-image:
+      linear-gradient(to right, grey 1px, transparent 1px),
+      linear-gradient(to bottom, grey 1px, transparent 1px);
+      
+}
+.graph_container {
+     width: 1000px;
+     height: 450px;
+     position:relative
+  }
+  .bar_chart_container{
+    position:absolute;
+    left:75px;
+    top:100px;
+    width:50%;
+  }
+  .bar_chart{
+    width:100%;
+    --line-count: 10;
+    --line-color: transparent;
+    --item-gap: 25px;
+  
+    
+    height: 250px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto,25px);
+    gap: var(--item-gap);
+    align-items: end;
+    padding-inline: var(--item-gap);
+    --padding-block: 25px; /*space for labels*/
+    padding-block: var(--padding-block);
+    position: relative;
+    isolation: isolate;
+  }
+  
+  .bar_chart::after{
+    content: "";
+    position: absolute;
+    inset: var(--padding-block) 0;
+    z-index: -1;
+    --line-width: 1px;
+    --line-count:10;
+    --line-spacing: calc(100% / var(--line-count));
+    background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing));
+    box-shadow: 0 var(--line-width) 0 var(--line-color);
+  }
+  .bar_chart > .item{
+    width:25px;
+    height: calc(1% * var(--val));
+    background-color: #222;
+    position: relative;
+    animation: item-height 1s ease forwards
+  }
+  @keyframes item-height { from { height: 0 } }
+  
+  .bar_chart > .item > * { position: absolute; text-align: center }
+  .bar_chart > .item > .label { inset: 100% 0 auto 0 }
+  .bar_chart > .item > .value { inset: auto 0 100% 0 }
+      
 /* person figure css */
 
 .person_figure{
   position: relative;
   width:fit-content;
   height:180px;
+}
+.person_left{
+    position: absolute;
+    top:50%;
+    left:10px;
+}
+.person_right{
+    position: absolute;
+    top:50%;
+    right:50px;
 }
 .person_head{
     border:1px solid transparent;
@@ -87,4 +166,14 @@ header{
     top: 52px;
     left:50%;
     transform: translateX(-50%);
+}
+
+.visibility_data_flex{
+    width:fit-content;
+    padding-left: 50px;
+    display:flex;
+    gap:50px;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-weight: 600;
 }
