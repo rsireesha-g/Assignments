@@ -17,6 +17,7 @@ header{
     padding:12px;
     margin: 2rem auto;
 }
+/* inputs grid css start */
 .inputs_grid{
     width: fit-content;
    display: grid;
@@ -49,27 +50,30 @@ header{
     margin: 0;
 }
 
+/* inputs grid css end */
 
-/* graph */
+/* wall visualization css */
 .wall_data_container{
     width:100%;
-    height:500px;
+    height:400px;
     border:1px solid grey;
     background-size: 25px 25px;
     background-image:
       linear-gradient(to right, grey 1px, transparent 1px),
       linear-gradient(to bottom, grey 1px, transparent 1px);
-      
+    display:none;
 }
 .graph_container {
      width: 1000px;
-     height: 450px;
-     position:relative
+     height: 400px;
+     position:relative;
+     margin-bottom: 1rem; 
+
   }
   .bar_chart_container{
     position:absolute;
     left:75px;
-    top:100px;
+    top:50px;
     width:50%;
   }
   .bar_chart{
@@ -82,7 +86,7 @@ header{
     height: 250px;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(auto,25px);
+    grid-template-columns: repeat(1,25px);
     gap: var(--item-gap);
     align-items: end;
     padding-inline: var(--item-gap);
@@ -106,7 +110,7 @@ header{
   }
   .bar_chart > .item{
     width:25px;
-    height: calc(1% * var(--val));
+    height: 0;
     background-color: #222;
     position: relative;
     animation: item-height 1s ease forwards
@@ -122,7 +126,7 @@ header{
 .person_figure{
   position: relative;
   width:fit-content;
-  height:180px;
+  height:140px;
 }
 .person_left{
     position: absolute;
@@ -167,12 +171,18 @@ header{
     left:50%;
     transform: translateX(-50%);
 }
-
+.visible_count{
+    width:100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+/* visibility data css */
 .visibility_data_flex{
     width:fit-content;
     padding-left: 50px;
     display:flex;
-    gap:50px;
+    gap:100px;
     justify-content: flex-start;
     font-size: 18px;
     font-weight: 600;
