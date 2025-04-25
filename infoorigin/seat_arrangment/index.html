@@ -13,7 +13,30 @@
         <h2 class="title">Seat Booking Interface</h2>
     </header>
     <div class="container">
-
+        <div class="inputs_flex_container">
+            <div class="input_inner_flex">
+                <label class="input_label">Seats Matrix :</label>
+                <div class="input_and_error">
+                    <input type="text" class="input_field" placeholder="Eg:5*3">
+                    <p class="error_msg" id="matrix_error"></p>
+                </div>
+            </div>
+            <div class="input_inner_flex">
+                <label class="input_label">No. of blocked seats :</label>
+                <input type="text" class="input_field" placeholder="Eg:2">
+            </div>
+        </div>
+        <div class="seats_arrangement">
+            <div class="seat blocked"></div>
+            <div class="seat booked"></div>
+            <div class="seat default"></div>
+        </div>
+        <div class="booked_seats_count">
+            <div class="input_inner_flex">
+                <label class="input_label">Total no. of seats booked:</label>
+                <div class="booked_count">0</div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="index.js"></script>
