@@ -18,21 +18,23 @@ header{
 /* container */
 .container{
     width:100%;
-    max-width:1045px;
+    max-width:1400px;
     margin:2rem auto 2rem auto;
     border:1px solid red;
     display:grid;
     grid-template-columns: 1fr;
     gap:1rem;
+    padding: 0rem 2rem;
 }
 
 /* inputs fields */
-.inputs_flex_container{
-   display:flex;
+.inputs_grid_container{
+   display: grid;
+   grid-template-columns:1fr 1fr;
    gap:1rem;
-   justify-content: space-between;
+   justify-content:space-evenly;
    align-items: center;
-   padding: 1rem;
+   padding: 0.5rem;
 }
 .input_inner_flex{
     display:flex;
@@ -59,7 +61,7 @@ header{
 }
 .input_field:disabled:active,
 .input_field:disabled:focus{
-    border:1px solid lightgray
+    border:2px solid lightgray
 }
 .input_error{
     border:1px solid rgba(226, 7, 7, 0.773);
@@ -72,28 +74,37 @@ header{
 
 /* seat arrangement */
 .seats_arrangement{
+    width: 100%;
+    padding: 0.5rem;
     display:grid;
-    grid-template-columns: repeat(2,60px);
     justify-content: center;
-    gap:1rem;
+    gap:0.5rem;
 }
 .seat{
-    width: 60px;
-    height: 40px;
+    /* width: 60px; */
+    aspect-ratio: 1.5;
     border:2px solid #222;
+    cursor: pointer;
 }
 .booked{
-   background-color: rgba(174, 239, 33, 0.964);
+    background-color: grey;
 }
 .default{
-   background-color: #666666ef;
+   background-color: limegreen;
+}
+.default:hover,
+.booked:hover{
+    transform:scale(1.02);
+    transition-duration: 0.3s;
+    border-color: rgb(238, 182, 53);
+
 }
 .blocked{
-background-color: rgba(203, 7, 7, 0.879);
+background-color: red;
+cursor: not-allowed;
 }
-.seat:hover{
-    border-color: rgb(238, 182, 53);
-}
+
+
 /* booked seats display */
 .booked_seats_count{
   padding: 1rem;
