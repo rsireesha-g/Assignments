@@ -23,7 +23,7 @@ const getSeatsMatrix = () => {
     let seat_matrix_value = seat_matrix_input.value;
     let matrix_value_array = seat_matrix_value?.split("*").map(Number);
 
-    if (matrix_value_array[0] < 1 && matrix_value_array[1] < 1) {  //minimum row and column value
+    if (matrix_value_array[0] < 1 || matrix_value_array[1] < 1) {  //minimum row and column value
         blocked_seat.disabled = "true";
         matrix_error_msg.innerText = "*Please enter value >0";
     }
@@ -69,25 +69,21 @@ const displaySeatsArrangement = (rows, columns, total) => {
 
             seat.addEventListener("click", () => { //on click toggle and update data
                 let is_already_booked = seat.classList.contains("booked");
-                console.log(is_already_booked);
                 seat.classList.toggle("booked");
                 seat.classList.toggle("default");
-
                 if (is_already_booked) {
+                    booked_seat.innerText = seats_matrix?.booked - 1;
                     seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked - 1, ['available']: seats_matrix?.available + 1 };
-                    booked_seat.innerText = seats_matrix?.available;
                 } else {
+                    booked_seat.innerText = seats_matrix?.booked + 1;
                     seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked + 1, ['available']: seats_matrix?.available - 1 };
-                    booked_seat.innerText = seats_matrix?.available;
                 }
-
-                console.log('--->matrix', seats_matrix)
             })
             seats_arrangement_container.appendChild(seat);
         }
     }
     seats_matrix = { ...seats_matrix, ['available']: total }
-    booked_seat.innerText = total;
+    booked_seat.innerText = 0;
 }
 
 let blocked_seats_index_array = [];
@@ -97,6 +93,8 @@ let blocked_seats_index_array = [];
 const getBlockedSeats = () => {
     let blocked_seat_error_msg = document.querySelector("#blocked_seat_error");
     let blocked_seats_count = Number(blocked_seat.value);
+    seats_matrix = { ...seats_matrix, ['available']: (seats_matrix?.total_seats - blocked_seats_count), ['blocked']: blocked_seats_count }
+
 
     if (blocked_seats_count < 0) { //minimum value check
         blocked_seat_error_msg.innerText = `*Please enter value >0`;
@@ -107,8 +105,6 @@ const getBlockedSeats = () => {
     else {
         blockingSeats(blocked_seats_count)
     }
-    seats_matrix = { ...seats_matrix, ['available']: (seats_matrix?.total_seats - seats_matrix?.blocked) }
-    booked_seat.innerText = seats_matrix?.total_seats - seats_matrix?.blocked;
 }
 
 let seat_no = -1;
@@ -133,7 +129,6 @@ const blockingSeats = (n) => {
             seat.classList.toggle("default")
         })
     }
-    console.log(seats_matrix)
 }
 
 // random number to block seat
@@ -144,7 +139,6 @@ const getSeatNo = () => {
 // check whether seat is already blocked or not
 const checkAlreadyBlocked = (n) => {
     let check = blocked_seats_index_array.includes(n);
-    console.log(check, n)
     if (check) {
         return true;
     } else {
