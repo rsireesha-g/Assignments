@@ -18,13 +18,15 @@
             <div>
                 <label class="input_label">Number of Walls :</label>
                 <input type="text" class="input_field" id="wall_number_input_field" placeholder="Eg: 5" min="1" max="15"
-                    onchange="getWallNumber()" aria-label="Number of Walls">
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" onchange="getWallNumber()"
+                    aria-label="Number of Walls">
                 <p class="error" id="number_error"></p>
             </div>
             <div>
                 <label class="input_label">Height of Walls :</label>
                 <input type="text" class="input_field" id="wall_heights_input_field" placeholder="Eg: 4,1,5,2..."
-                    onchange="getWallHeights()" aria-label="Height of Walls">
+                    oninput="this.value = this.value.replace(/[^0-9^,]/g, '')" onchange="getWallHeights()"
+                    aria-label="Height of Walls">
                 <p class="error" id="heights_error"></p>
             </div>
         </div>

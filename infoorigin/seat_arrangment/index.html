@@ -20,7 +20,7 @@
                 <label class="input_label">Seats Matrix :</label>
                 <div class="input_and_error">
                     <input type="text" class="input_field" id="seat_matrix_input_field" placeholder="Eg:5*3"
-                        onchange="getSeatsMatrix()">
+                        oninput="this.value = this.value.replace(/[^0-9^*]/g, '')" onchange="getSeatsMatrix()">
                     <p class="error_msg" id="matrix_error"></p>
                 </div>
             </div>
@@ -28,7 +28,8 @@
                 <label class="input_label">No. of blocked seats :</label>
                 <div class="input_and_error">
                     <input type="text" class="input_field" id="blocked_seat_input_field" disabled placeholder="Eg:2"
-                        onchange="getBlockedSeats()">
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" onchange="getBlockedSeats()"
+                        pattern="[0-9]">
                     <p class="error_msg" id="blocked_seat_error"></p>
                 </div>
             </div>
