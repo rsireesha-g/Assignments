@@ -93,4 +93,25 @@ header{
    aspect-ratio: 0.8;
    border: 2px solid #222;
    border-radius: 15%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+ }
+ .card_value{
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 600;
+    display:none;
+ }
+
+ .flipped{
+    border-color:rgba(252, 200, 70, 0.916);
+ }
+ .blocked{
+    background: #666;
+    cursor: not-allowed;
+ }
+ .wrong{
+    border-color: red;
  }
