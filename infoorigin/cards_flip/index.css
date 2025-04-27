@@ -19,12 +19,12 @@ header{
 .container{
     width:100%;
     max-width:1400px;
-    margin:2rem auto 2rem auto;
+    margin:0rem auto 2rem auto;
     border:1px solid red;
     display:grid;
     grid-template-columns: 1fr;
     gap:1rem;
-    padding: 0rem 2rem;
+    padding: 2rem;
 }
 
 /* inputs fields */
@@ -79,4 +79,18 @@ header{
  }
  .input_condition>span{
    font-size: 18px;
+ }
+
+ /* cards  */
+ .cards_container{
+    display:grid;
+    grid-template-columns: repeat(10,auto);
+    gap:1rem;
+    justify-content: center;
+ }
+ .card{
+   height: 80px;
+   aspect-ratio: 0.8;
+   border: 2px solid #222;
+   border-radius: 15%;
  }
