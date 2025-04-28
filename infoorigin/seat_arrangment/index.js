@@ -18,6 +18,7 @@ let booked_seat = document.querySelector(".booked_count");
 const getSeatsMatrix = () => {
     let matrix_error_msg = document.querySelector("#matrix_error");
     blocked_seat.value = '';
+    booked_seat.innerText = 0;
 
 
     let seat_matrix_value = seat_matrix_input.value;
