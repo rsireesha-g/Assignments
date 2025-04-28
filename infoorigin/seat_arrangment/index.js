@@ -69,14 +69,17 @@ const displaySeatsArrangement = (rows, columns, total) => {
 
             seat.addEventListener("click", () => { //on click toggle and update data
                 let is_already_booked = seat.classList.contains("booked");
+                let is_already_blocked = seat.classList.contains("blocked");
                 seat.classList.toggle("booked");
                 seat.classList.toggle("default");
-                if (is_already_booked) {
-                    booked_seat.innerText = seats_matrix?.booked - 1;
-                    seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked - 1, ['available']: seats_matrix?.available + 1 };
-                } else {
-                    booked_seat.innerText = seats_matrix?.booked + 1;
-                    seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked + 1, ['available']: seats_matrix?.available - 1 };
+                if (!is_already_blocked) {
+                    if (is_already_booked) {
+                        booked_seat.innerText = seats_matrix?.booked - 1;
+                        seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked - 1, ['available']: seats_matrix?.available + 1 };
+                    } else {
+                        booked_seat.innerText = seats_matrix?.booked + 1;
+                        seats_matrix = { ...seats_matrix, ['booked']: seats_matrix?.booked + 1, ['available']: seats_matrix?.available - 1 };
+                    }
                 }
             })
             seats_arrangement_container.appendChild(seat);
@@ -93,7 +96,7 @@ let blocked_seats_index_array = [];
 const getBlockedSeats = () => {
     let blocked_seat_error_msg = document.querySelector("#blocked_seat_error");
     let blocked_seats_count = Number(blocked_seat.value);
-    seats_matrix = { ...seats_matrix, ['available']: (seats_matrix?.total_seats - blocked_seats_count), ['blocked']: blocked_seats_count }
+    seats_matrix = { ...seats_matrix, ['available']: (seats_matrix?.total_seats - seats_matrix?.booked) }
 
 
     if (blocked_seats_count < 0) { //minimum value check
@@ -101,15 +104,26 @@ const getBlockedSeats = () => {
     }
     else if (blocked_seats_count > seats_matrix?.total_seats) { // maximum value check
         blocked_seat_error_msg.innerText = `*Please enter value <=${seats_matrix?.total_seats}`;
+    } else if (blocked_seats_count > seats_matrix?.available) {
+        blocked_seat_error_msg.innerText = `*Please enter value <=${seats_matrix?.available}`;
     }
     else {
+        blocked_seat_error_msg.innerText = '';
+        seats_matrix = { ...seats_matrix, ['available']: seats_matrix?.available - blocked_seats_count, ['blocked']: blocked_seats_count }
         blockingSeats(blocked_seats_count)
     }
+    console.log(seats_matrix)
+
 }
 
 let seat_no = -1;
 const blockingSeats = (n) => {
     blocked_seats_index_array = []; //reset array
+    let all_blocked_seats = [...document.getElementsByClassName("blocked")];
+    all_blocked_seats?.map((seat) => {
+        seat.classList.toggle("blocked");
+        seat.classList.toggle("default")
+    })
 
     if (n != 0) {
         for (let i = 0; i < n; i++) {
@@ -138,7 +152,9 @@ const getSeatNo = () => {
 
 // check whether seat is already blocked or not
 const checkAlreadyBlocked = (n) => {
-    let check = blocked_seats_index_array.includes(n);
+    let seat = document.getElementById(`row_col_${n}`);
+    let is_booked = seat.classList.contains("booked");
+    let check = blocked_seats_index_array.includes(n) || is_booked;
     if (check) {
         return true;
     } else {
