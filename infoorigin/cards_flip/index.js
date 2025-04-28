@@ -3,6 +3,8 @@ let no_of_cards = 0;
 let cards_no_obj = {};
 let selected_card_values = [];
 let blocked_cards_count = 0;
+let cards_container = document.querySelector(".cards_container");
+
 
 // cards number
 const getCardsNumber = () => {
@@ -34,7 +36,6 @@ const generateRandomNumbersArray = (n) => {
 
         cards_no_obj[number] = 0;
     }
-    console.log(cards_no_obj)
 }
 
 const generateRandomNumber = () => {
@@ -49,53 +50,75 @@ const onCardClick = (value, index, card, p) => {
     if (selected_card_values?.length == 0) {
         selected_card_values.push([value, index]);
         card.classList.add("flipped");
-        p.style.display = 'block';
+        p.style.display = "block";
+        setTimeout(() => {
+            p.innerText = value;
+        }, 800)
     }
-    else if (selected_card_values?.length == 1) {
+    else {
         selected_card_values.push([value, index]);
         card.classList.add("flipped");
-        p.style.display = 'block';
+        p.style.display = "block";
+
+        setTimeout(() => {
+            p.innerText = value;
+        }, 800)
 
         let chcek = selected_card_values[0][0] === value;
-        console.log(selected_card_values)
         let prev_card = document.getElementById(`card${selected_card_values[0][1]}`);
 
         if (chcek) {
-            card.classList.add("blocked");
-            card.classList.remove("flipped");
-            prev_card.classList.add("blocked");
-            prev_card.classList.remove("flipped");
-            blocked_cards_count += 1;
+            blockCards(card, prev_card)
 
-            selected_card_values = [];
-            if (blocked_cards_count === (no_of_cards / 2)) {
-                alert("won the game");
-            };
         } else {
-            card.classList.add("wrong");
-            card.classList.remove("flipped");
-            prev_card.classList.add("wrong");
-            prev_card.classList.remove("flipped");
-
-            setTimeout(() => {
-                card.classList.toggle("wrong");
-                let card_child = card.firstChild;
-                card_child.style.display = "none";
-
-                prev_card.classList.toggle("wrong");
-                let prev_card_child = prev_card.firstChild;
-                prev_card_child.style.display = "none"
-            }, 1000);
-            selected_card_values = [];
+            wrongCardsSelected(card, prev_card)
         }
-        console.log(chcek, 'checking', selected_card_values)
-    } else {
-        console.log('already clicked')
     }
 }
 
+const blockCards = (card, prev_card) => {
+    setTimeout(() => {
+        card.classList.add("blocked");
+        card.classList.remove("flipped");
+        prev_card.classList.add("blocked");
+        prev_card.classList.remove("flipped");
+
+        selected_card_values = [];
+    }, 1000);
+    blocked_cards_count += 1;
+
+    if (blocked_cards_count === (no_of_cards / 2)) {
+        setTimeout(() => {
+            congratulationsModal()
+        }, 1500)
+    };
+}
+
+const wrongCardsSelected = (card, prev_card) => {
+    setTimeout(() => {
+        card.classList.add("wrong");
+        card.classList.remove("flipped");
+        prev_card.classList.add("wrong");
+        prev_card.classList.remove("flipped");
+    }, 1000);
+
+    let card_child = card.firstChild;
+    let prev_card_child = prev_card.firstChild;
+
+    setTimeout(() => {
+
+        card.classList.toggle("wrong");
+        prev_card.classList.toggle("wrong");
+
+        prev_card_child.style.display = "none";
+        card_child.style.display = "none";
+
+    }, 2000);
+
+    selected_card_values = [];
+}
+
 const displayCards = () => {
-    let cards_container = document.querySelector(".cards_container");
     cards_container.innerHTML = '';
 
     for (let i = 0; i < no_of_cards; i++) {
@@ -106,17 +129,17 @@ const displayCards = () => {
         let p = document.createElement("p");
         p.setAttribute("class", "card_value");
 
-        // if(cards_no_obj[])
-        // Random Key
         let random_key = generateRandomIndexValue();
+
         while (cards_no_obj[random_key] > 1) {
             random_key = generateRandomIndexValue();
         }
         cards_no_obj[random_key] += 1;
-        p.innerText = random_key;
 
         card.addEventListener("click", () => {
-            if (card.classList.contains("blocked")) {
+
+            if (card.classList.contains("blocked") || (
+                selected_card_values?.length === 1 && selected_card_values[0][1] === i)) {
                 console.log('already blocked')
             } else {
                 onCardClick(random_key, i, card, p)
@@ -127,5 +150,25 @@ const displayCards = () => {
 
         cards_container.appendChild(card);
     }
-    console.log(cards_no_obj)
 }
+
+let modal = document.querySelector(".modal");
+
+const congratulationsModal = () => {
+    modal.style.display = "block";
+}
+
+const closeModal = () => {
+    modal.style.display = "none";
+}
+
+const restartGame = () => {
+    card_input_field.value = '';
+    no_of_cards = 0;
+    cards_no_obj = {};
+    selected_card_values = [];
+    blocked_cards_count = 0;
+    modal.style.display = "none";
+    cards_container.innerHTML = '';
+}
+
