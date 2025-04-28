@@ -104,7 +104,7 @@ background-color: red;
 cursor: not-allowed;
 }
 .blocked:hover{
-    background-color: #222;
+    border-color: #222;
 }
 
 
